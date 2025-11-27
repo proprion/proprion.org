@@ -7,7 +7,7 @@ import Highlight from '../components/Highlight.astro';
 
 <Layout>
   <head>
-    <title>Proprion - Brainstorm Board</title>
+    <title>Proprion - Your Data, Your Cloud</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,8 +18,8 @@ import Highlight from '../components/Highlight.astro';
         <div class="header-left">
           <h1 class="main-title">Proprion</h1>
           <p class="header-tagline">
-            An app for end-users to manage their personal cloud storage
-            and grant scoped access to applications. <span class="tagline-highlight">Freedom Starts With Your Data.</span>
+            Manage your personal cloud storage and grant scoped access to apps.
+            <span class="tagline-highlight">Your data stays in YOUR cloud.</span>
           </p>
         </div>
         <div class="header-right">
@@ -31,24 +31,17 @@ import Highlight from '../components/Highlight.astro';
       <section class="section">
         <SectionTitle title="The Problem" />
         <div class="sticky-board">
-          <StickyNote
-            title="The Impossible Choice"
-            content={`Big Tech (Google Drive, iCloud, Dropbox):
-- You don't know where your data goes
-- Your files are scanned and analyzed
-- No real control over your own data
-- High vendor lock-in
+          <StickyNote title="For End-Users">
+            <Highlight text="Big Tech" /> scans your files and locks you in.
+            <Highlight text="Self-hosting" /> requires sysadmin skills.
 
-Self-Hosting (Nextcloud, own servers):
-- Requires technical expertise
-- You must manage servers and security
-- Realistic for only 1% of people`}
-          />
+            No middle ground exists -- until now.
+          </StickyNote>
 
-          <StickyNote title="The Gap">
-            No solution provides <Highlight text="data sovereignty" /> without requiring you to become a <Highlight text="system administrator" />.
+          <StickyNote title="For Developers">
+            Building privacy-first apps means running servers, managing databases, and handling <Highlight text="GDPR compliance" />.
 
-For Developers: Building privacy-first apps means running servers and handling <Highlight text="GDPR compliance" />. This prevents indie developers from building apps with sensitive data (health, mental health, accessibility tools).
+            Compliance costs (€10k-50k/year) block indie devs from building health, mental health, and accessibility apps.
           </StickyNote>
         </div>
       </section>
@@ -57,248 +50,120 @@ For Developers: Building privacy-first apps means running servers and handling <
       <section class="section">
         <SectionTitle title="The Solution" />
         <div class="sticky-board">
-          <StickyNote title="Choose Your Cloud">
-            You select your European cloud provider (Hetzner, Scaleway, OVHcloud)
+          <StickyNote title="You Choose Your Cloud">
+            Pick a European provider (Scaleway, Exoscale, Hetzner).
+            <Highlight text="Your data, your jurisdiction, your choice." />
 
-Why:
-- Data sovereignty: <Highlight text="You decide where your data lives" />
-- No vendor lock-in: Switch providers anytime
-- GDPR protection: Your data stays in EU
-- You're in control: Your choice, your provider
+            No vendor lock-in. Switch anytime.
           </StickyNote>
 
-          <StickyNote title="Grant Scoped Access">
-            Apps get access <Highlight text="ONLY to their own folder" />
-Example: A notes app can only access /apps/notes/
+          <StickyNote title="Apps Get Scoped Access">
+            Each app only accesses <Highlight text="its own folder" />.
+            Notes app → /apps/notes/
+            Photo app → /apps/photos/
 
-Why:
-- Isolation: Each app has its own space
-- Control: You approve or deny every request
-- Revocable: Remove app access anytime
-- Privacy: Apps can't spy on each other
-          </StickyNote>
-
-          <StickyNote title="Optional Encryption">
-            Your data is <Highlight text="encrypted on YOUR device" /> before upload
-
-Why:
-- <Highlight text="Zero-knowledge" />: Even cloud provider can't read files
-- You control keys: Keys never leave your device
-- Optional: Turn on for sensitive data
-- Perfect for: Health records, financial docs, journals
+            Apps can't see each other's data. Enforced by cloud provider IAM.
           </StickyNote>
 
           <StickyNote title="No Developer Servers">
-            Apps connect <Highlight text="directly to YOUR cloud" />
-
-For You:
-- True privacy: Developers can't access your data
-- No data mining: Content can't be scanned or sold
-
-For Developers:
-- <Highlight text="No servers needed" />
-- Minimal GDPR burden
-- Enable innovation
+            Apps connect <Highlight text="directly to YOUR cloud" />.
+            Developers never touch your data.
+            No data mining. No breaches of your content.
           </StickyNote>
         </div>
       </section>
 
-      <!-- Section 3: HOW END-USERS USE IT -->
+      <!-- Section 3: HOW IT WORKS -->
       <section class="section">
-        <SectionTitle title="How End-Users Use It" />
+        <SectionTitle title="How It Works" />
         <div class="sticky-board">
-          <StickyNote
-            title="Step 1: One-Time Setup"
-            content={`What You Do:
-1. Install Proprion Admin App
-2. Choose your cloud provider
-3. Get credentials from provider
-4. Enter credentials in Admin App
-
-What Happens:
-- Credentials stored locally on your device
-- Never sent to app developers
-- You're connected to YOUR cloud
-
-Time: 5 minutes, done once`}
-          />
-
-          <StickyNote
-            title="Step 2: Install an App"
-            content={`What You Do:
-1. Download app (scanner, notes, etc.)
-2. App asks for permission
-3. Review: "This app wants /apps/scanner/"
-4. Tap "Approve"
-
-What Happens:
-- App receives limited credentials
-- Can only access its own folder
-- You stay in control
-
-Time: 30 seconds per app`}
-          />
-
-          <StickyNote
-            title="Step 3: Use the App Daily"
-            content={`Example: Document Scanner
-- Scan a document
-- App processes it locally
-- Stored in YOUR cloud
-- Accessible from all devices
-
-Switch Devices:
-- Open app on desktop
-- Same documents appear
-- No backup/restore needed`}
-          />
-
-          <StickyNote
-            title="Step 4: Manage Your Apps"
-            content={`Open Admin App anytime to:
-- See all apps with access
-- Monitor storage per app
-- Revoke app access instantly
-- Switch cloud providers
-- Enable/disable encryption
-
-You're Always in Control`}
-          />
-        </div>
-      </section>
-
-      <!-- Section 4: HOW DEVELOPERS USE IT -->
-      <section class="section">
-        <SectionTitle title="How Developers Use It" />
-        <div class="sticky-board">
-          <StickyNote
-            title="Step 1: Add Proprion Library"
-            content={`What You Get:
-- Works on Windows, macOS, Linux
-- Mobile support (iOS, Android)
-- Bindings for: Swift, Kotlin, JavaScript, Python
-- Cross-platform with single codebase
-
-Development Time: Weeks instead of months`}
-          />
-
-          <StickyNote
-            title="Step 2: Request User Access"
-            content={`What Happens:
-- User sees permission request
-- User approves or denies
-- Your app gets scoped credentials
-
-You Never See:
-- User's root cloud credentials
-- Other apps' data
-- User's personal files`}
-          />
-
-          <StickyNote
-            title="Step 3: Store Data Directly"
-            content={`What Happens:
-- Data goes directly to user's cloud
-- Not through your servers
-- Library handles encryption
-- Library handles multi-provider differences
-
-You focus on your app features`}
-          />
-
-          <StickyNote
-            title="Step 4: What You DON'T Build"
-            content={`You Don't Need:
-- Backend servers
-- Databases
-- User authentication systems
-- Backup infrastructure
-- Server security hardening
-- GDPR compliance systems
-
-You Focus On:
-- Great UX
-- App features
-- Your product vision`}
-          />
-
-          <StickyNote
-            title="Step 5: GDPR Benefits"
-            content={`Why This Matters:
-You don't control user data = You're not the data controller = Minimal GDPR compliance burden
-
-You Can Build:
-- Medical record apps
-- Mental health journals
-- Biometric accessibility tools
-- Therapy systems
-
-Without compliance costs that block indie devs`}
-          />
-        </div>
-      </section>
-
-      <!-- Section 5: IMPACT -->
-      <section class="section">
-        <SectionTitle title="Impact" />
-        <div class="sticky-board">
-          <StickyNote title="Empowering People">
-            For End-Users:
-<Highlight text="Data sovereignty without becoming a system administrator" />. Choose your cloud, control your apps, keep your privacy.
-
-For Developers:
-Build public-benefit apps (health, mental health, accessibility tools) without infrastructure burden or prohibitive compliance costs.
-
-Result: <Highlight text="Apps that were impossible for indie developers become possible" />.
+          <StickyNote title="1. Setup (5 min)">
+            Get cloud account (Scaleway, Exoscale, Hetzner).
+            Enter credentials in <Highlight text="Proprion Admin App" />.
+            Credentials stored locally -- never sent anywhere.
           </StickyNote>
 
-          <StickyNote title="Challenging Big Tech">
-            The Problem Today:
-Big Tech dominates because only they can afford infrastructure and compliance costs. Small developers can't compete on privacy.
+          <StickyNote title="2. Add Apps">
+            Install a Proprion-compatible app.
+            Admin App generates <Highlight text="scoped credentials" /> for that app.
+            App can only access its own folder.
+          </StickyNote>
 
-Proprion Changes This:
-<Highlight text="Enable competition with Big Tech on privacy grounds" />. Small teams can build privacy-respecting alternatives.
-
-Result: Realize GDPR's democratic vision - users empowered, data protected, innovation enabled.
+          <StickyNote title="3. Stay in Control">
+            See all apps with access.
+            Revoke access instantly.
+            Monitor storage per app.
           </StickyNote>
         </div>
       </section>
 
-      <!-- Section 6: CALL TO ACTION -->
+      <!-- Section 4: FOR DEVELOPERS -->
       <section class="section">
-        <SectionTitle title="Call to Action" />
+        <SectionTitle title="For Developers" />
         <div class="sticky-board">
-          <StickyNote title="For End-Users">
-            Take Control of Your Data
+          <StickyNote title="Simple Integration">
+            User gives you scoped S3 credentials.
+            Use <Highlight text="any S3 client" /> -- no special library needed.
 
-Get early access to Proprion
-Be among the first to achieve <Highlight text="data sovereignty" />
-
-[Sign Up for Beta]
+            Optional: Use Proprion library for encryption or non-S3 providers.
           </StickyNote>
 
-          <StickyNote
-            title="For Developers"
-            content={`Build Privacy-First Apps
+          <StickyNote title="What You Skip">
+            No backend servers.
+            No databases.
+            No backup infrastructure.
+            <Highlight text="No GDPR liability" /> for user content.
 
-Access developer documentation
-Join the community
-Start building
+            You don't control user data = you're not the data controller.
+          </StickyNote>
 
-[Developer Portal]`}
-          />
+          <StickyNote title="What You Can Build">
+            Medical record apps.
+            Mental health journals.
+            Biometric tools.
+            Therapy systems.
 
-          <StickyNote
-            title="Open Source"
-            content={`Fully Transparent
+            <Highlight text="Apps that were impossible become possible." />
+          </StickyNote>
+        </div>
+      </section>
 
-- Open source code
-- Community-driven
-- Auditable
-- No proprietary lock-in
+      <!-- Section 5: STATUS -->
+      <section class="section">
+        <SectionTitle title="Status" />
+        <div class="sticky-board">
+          <StickyNote title="Prototype Ready">
+            CLI prototype working with Scaleway and Exoscale.
+            Creates scoped IAM credentials per app.
+            <Highlight text="Isolation verified" /> -- apps can't access each other's data.
 
-[View on GitHub]`}
-          />
+            <a href="https://github.com/proprion/proprion-desktop" style="color: #2563eb;">github.com/proprion/proprion-desktop</a>
+          </StickyNote>
+
+          <StickyNote title="Coming Soon">
+            Desktop Admin App (Tauri + React)
+            Mobile Admin App (iOS + Android)
+            Sample Notes App
+            Optional encryption library
+          </StickyNote>
+        </div>
+      </section>
+
+      <!-- Section 6: GET INVOLVED -->
+      <section class="section">
+        <SectionTitle title="Get Involved" />
+        <div class="sticky-board">
+          <StickyNote title="Open Source">
+            Fully transparent. Community-driven. Auditable.
+
+            <a href="https://github.com/proprion" style="color: #2563eb;">github.com/proprion</a>
+          </StickyNote>
+
+          <StickyNote title="Contact">
+            Questions? Ideas? Want to build with Proprion?
+
+            <a href="mailto:hello@proprion.org" style="color: #2563eb;">hello@proprion.org</a>
+          </StickyNote>
         </div>
       </section>
     </div>
