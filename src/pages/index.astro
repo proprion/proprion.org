@@ -32,16 +32,15 @@ import Highlight from '../components/Highlight.astro';
         <SectionTitle title="The Problem" />
         <div class="sticky-board">
           <StickyNote title="For End-Users">
-            <Highlight text="Big Tech" /> scans your files and locks you in.
-            <Highlight text="Self-hosting" /> requires sysadmin skills.
+            Today you have two choices for storing your data. You can use services like Google Drive, iCloud, or Dropbox -- but then your files get scanned, analyzed, and you have no idea where they actually end up. Or you can host your own server with something like Nextcloud -- but that requires technical skills most people don't have.
 
-            No middle ground exists -- until now.
+            There's no good option for someone who just wants to <Highlight text="control their own data" /> without becoming a system administrator.
           </StickyNote>
 
           <StickyNote title="For Developers">
-            Building privacy-first apps means running servers, managing databases, and handling <Highlight text="GDPR compliance" />.
+            If you want to build a privacy-respecting app, you need to run servers, manage databases, handle backups, and deal with security. On top of that, you're responsible for <Highlight text="GDPR compliance" /> -- which means legal requirements, documentation, and potential liability.
 
-            This burden blocks indie devs from building health, mental health, and accessibility apps.
+            For a small team or indie developer, this is often too much. Many good app ideas never get built because the infrastructure burden is just too heavy.
           </StickyNote>
         </div>
       </section>
@@ -51,24 +50,21 @@ import Highlight from '../components/Highlight.astro';
         <SectionTitle title="The Solution" />
         <div class="sticky-board">
           <StickyNote title="You Choose Your Cloud">
-            Pick a European provider (Scaleway, Exoscale, Hetzner).
-            <Highlight text="Your data, your jurisdiction, your choice." />
+            Instead of using Big Tech services or running your own server, you pick a European cloud provider like Scaleway, Exoscale, or Hetzner. You create an account directly with them.
 
-            No vendor lock-in. Switch anytime.
+            <Highlight text="Your data lives in your own cloud account" /> -- not in some app developer's database. You decide where it's stored and you can switch providers whenever you want.
           </StickyNote>
 
           <StickyNote title="Apps Get Scoped Access">
-            Each app only accesses <Highlight text="its own folder" />.
-            Notes app → /apps/notes/
-            Photo app → /apps/photos/
+            When you install an app that works with Proprion, it doesn't get access to all your files. It only gets access to <Highlight text="its own folder" />.
 
-            Apps can't see each other's data. Enforced by cloud provider IAM.
+            A notes app can only see /apps/notes/. A photo app can only see /apps/photos/. They can't read each other's data -- this is enforced by the cloud provider's security system, not by trusting the apps.
           </StickyNote>
 
           <StickyNote title="No Developer Servers">
-            Apps connect <Highlight text="directly to YOUR cloud" />.
-            Developers never touch your data.
-            No data mining. No breaches of your content.
+            Apps connect <Highlight text="directly to your cloud storage" />. The developer never sees your data, never stores it on their servers, and can't access it even if they wanted to.
+
+            This also means developers don't have to run servers or worry about storing your personal data. They just build the app, and your data stays yours.
           </StickyNote>
         </div>
       </section>
