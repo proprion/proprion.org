@@ -77,13 +77,14 @@ import Highlight from '../components/Highlight.astro';
       <section class="section">
         <SectionTitle title="How It Works" />
         <div class="sticky-board">
-          <StickyNote title="1. Setup (5 min)">
-            Get cloud account (Scaleway, Exoscale, Hetzner).
-            Enter credentials in <Highlight text="Proprion Admin App" />.
-            Credentials stored locally -- never sent anywhere.
+          <StickyNote title="1. Install Proprion App">
+            Download <Highlight text="Proprion Admin App" />.
+            The app guides you through creating a cloud account with step-by-step instructions for each provider.
+
+            <a href="https://github.com/proprion/proprion-desktop" style="color: #2563eb;">Download (coming soon)</a>
           </StickyNote>
 
-          <StickyNote title="2. Add Apps">
+          <StickyNote title="2. Add Apps (30 sec each)">
             Install a Proprion-compatible app.
             Admin App generates <Highlight text="scoped credentials" /> for that app.
             App can only access its own folder.
