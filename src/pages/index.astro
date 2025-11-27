@@ -1,11 +1,443 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import StickyNote from '../components/StickyNote.astro';
+import SectionTitle from '../components/SectionTitle.astro';
 ---
 
 <Layout>
-	<Welcome />
+  <head>
+    <title>Proprion - Brainstorm Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <header class="site-header">
+        <div class="header-left">
+          <h1 class="main-title">Proprion</h1>
+          <p class="header-tagline">
+            An app for end-users to manage their personal cloud storage
+            and grant scoped access to applications.
+          </p>
+        </div>
+        <div class="header-right">
+          <div class="logo-text">logo</div>
+        </div>
+      </header>
+
+      <!-- Section 1: THE PROBLEM -->
+      <section class="section">
+        <SectionTitle title="The Problem" />
+        <div class="sticky-board">
+          <StickyNote
+            title="The Impossible Choice"
+            content={`Big Tech (Google Drive, iCloud, Dropbox):
+- You don't know where your data goes
+- Your files are scanned and analyzed
+- No real control over your own data
+- High vendor lock-in
+
+Self-Hosting (Nextcloud, own servers):
+- Requires technical expertise
+- You must manage servers and security
+- Realistic for only 1% of people`}
+          />
+
+          <StickyNote
+            title="The Gap"
+            content={`No solution provides data sovereignty without requiring you to become a system administrator.
+
+For Developers: Building privacy-first apps means running servers and handling GDPR compliance. This prevents indie developers from building apps with sensitive data (health, mental health, accessibility tools).`}
+          />
+        </div>
+      </section>
+
+      <!-- Section 2: THE SOLUTION -->
+      <section class="section">
+        <SectionTitle title="The Solution" />
+        <div class="sticky-board">
+          <StickyNote
+            title="Choose Your Cloud"
+            content={`You select your European cloud provider (Hetzner, Scaleway, OVHcloud)
+
+Why:
+- Data sovereignty: You decide where your data lives
+- No vendor lock-in: Switch providers anytime
+- GDPR protection: Your data stays in EU
+- You're in control: Your choice, your provider`}
+          />
+
+          <StickyNote
+            title="Grant Scoped Access"
+            content={`Apps get access ONLY to their own folder
+Example: A notes app can only access /apps/notes/
+
+Why:
+- Isolation: Each app has its own space
+- Control: You approve or deny every request
+- Revocable: Remove app access anytime
+- Privacy: Apps can't spy on each other`}
+          />
+
+          <StickyNote
+            title="Optional Encryption"
+            content={`Your data is encrypted on YOUR device before upload
+
+Why:
+- Zero-knowledge: Even cloud provider can't read files
+- You control keys: Keys never leave your device
+- Optional: Turn on for sensitive data
+- Perfect for: Health records, financial docs, journals`}
+          />
+
+          <StickyNote
+            title="No Developer Servers"
+            content={`Apps connect directly to YOUR cloud
+
+For You:
+- True privacy: Developers can't access your data
+- No data mining: Content can't be scanned or sold
+
+For Developers:
+- No servers needed
+- Minimal GDPR burden
+- Enable innovation`}
+          />
+        </div>
+      </section>
+
+      <!-- Section 3: HOW END-USERS USE IT -->
+      <section class="section">
+        <SectionTitle title="How End-Users Use It" />
+        <div class="sticky-board">
+          <StickyNote
+            title="Step 1: One-Time Setup"
+            content={`What You Do:
+1. Install Proprion Admin App
+2. Choose your cloud provider
+3. Get credentials from provider
+4. Enter credentials in Admin App
+
+What Happens:
+- Credentials stored locally on your device
+- Never sent to app developers
+- You're connected to YOUR cloud
+
+Time: 5 minutes, done once`}
+          />
+
+          <StickyNote
+            title="Step 2: Install an App"
+            content={`What You Do:
+1. Download app (scanner, notes, etc.)
+2. App asks for permission
+3. Review: "This app wants /apps/scanner/"
+4. Tap "Approve"
+
+What Happens:
+- App receives limited credentials
+- Can only access its own folder
+- You stay in control
+
+Time: 30 seconds per app`}
+          />
+
+          <StickyNote
+            title="Step 3: Use the App Daily"
+            content={`Example: Document Scanner
+- Scan a document
+- App processes it locally
+- Stored in YOUR cloud
+- Accessible from all devices
+
+Switch Devices:
+- Open app on desktop
+- Same documents appear
+- No backup/restore needed`}
+          />
+
+          <StickyNote
+            title="Step 4: Manage Your Apps"
+            content={`Open Admin App anytime to:
+- See all apps with access
+- Monitor storage per app
+- Revoke app access instantly
+- Switch cloud providers
+- Enable/disable encryption
+
+You're Always in Control`}
+          />
+        </div>
+      </section>
+
+      <!-- Section 4: HOW DEVELOPERS USE IT -->
+      <section class="section">
+        <SectionTitle title="How Developers Use It" />
+        <div class="sticky-board">
+          <StickyNote
+            title="Step 1: Add Proprion Library"
+            content={`What You Get:
+- Works on Windows, macOS, Linux
+- Mobile support (iOS, Android)
+- Bindings for: Swift, Kotlin, JavaScript, Python
+- Cross-platform with single codebase
+
+Development Time: Weeks instead of months`}
+          />
+
+          <StickyNote
+            title="Step 2: Request User Access"
+            content={`What Happens:
+- User sees permission request
+- User approves or denies
+- Your app gets scoped credentials
+
+You Never See:
+- User's root cloud credentials
+- Other apps' data
+- User's personal files`}
+          />
+
+          <StickyNote
+            title="Step 3: Store Data Directly"
+            content={`What Happens:
+- Data goes directly to user's cloud
+- Not through your servers
+- Library handles encryption
+- Library handles multi-provider differences
+
+You focus on your app features`}
+          />
+
+          <StickyNote
+            title="Step 4: What You DON'T Build"
+            content={`You Don't Need:
+- Backend servers
+- Databases
+- User authentication systems
+- Backup infrastructure
+- Server security hardening
+- GDPR compliance systems
+
+You Focus On:
+- Great UX
+- App features
+- Your product vision`}
+          />
+
+          <StickyNote
+            title="Step 5: GDPR Benefits"
+            content={`Why This Matters:
+You don't control user data = You're not the data controller = Minimal GDPR compliance burden
+
+You Can Build:
+- Medical record apps
+- Mental health journals
+- Biometric accessibility tools
+- Therapy systems
+
+Without compliance costs that block indie devs`}
+          />
+        </div>
+      </section>
+
+      <!-- Section 5: IMPACT -->
+      <section class="section">
+        <SectionTitle title="Impact" />
+        <div class="sticky-board">
+          <StickyNote
+            title="Empowering People"
+            content={`For End-Users:
+Data sovereignty without becoming a system administrator. Choose your cloud, control your apps, keep your privacy.
+
+For Developers:
+Build public-benefit apps (health, mental health, accessibility tools) without infrastructure burden or prohibitive compliance costs.
+
+Result: Apps that were impossible for indie developers become possible.`}
+          />
+
+          <StickyNote
+            title="Challenging Big Tech"
+            content={`The Problem Today:
+Big Tech dominates because only they can afford infrastructure and compliance costs. Small developers can't compete on privacy.
+
+Proprion Changes This:
+Enable competition with Big Tech on privacy grounds. Small teams can build privacy-respecting alternatives.
+
+Result: Realize GDPR's democratic vision - users empowered, data protected, innovation enabled.`}
+          />
+        </div>
+      </section>
+
+      <!-- Section 6: CALL TO ACTION -->
+      <section class="section">
+        <SectionTitle title="Call to Action" />
+        <div class="sticky-board">
+          <StickyNote
+            title="For End-Users"
+            content={`Take Control of Your Data
+
+Get early access to Proprion
+Be among the first to achieve data sovereignty
+
+[Sign Up for Beta]`}
+          />
+
+          <StickyNote
+            title="For Developers"
+            content={`Build Privacy-First Apps
+
+Access developer documentation
+Join the community
+Start building
+
+[Developer Portal]`}
+          />
+
+          <StickyNote
+            title="Open Source"
+            content={`Fully Transparent
+
+- Open source code
+- Community-driven
+- Auditable
+- No proprietary lock-in
+
+[View on GitHub]`}
+          />
+        </div>
+      </section>
+    </div>
 </Layout>
+
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    background: radial-gradient(circle, rgba(0,0,0,0.06) 1.2px, transparent 1px) repeat;
+    background-size: 20px 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px 32px;
+    background: transparent;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .logo-text {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    padding: 14px 22px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+  }
+
+  .logo-text::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 14px;
+    background: linear-gradient(135deg, #fdfdfd, #f3f3f3);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    opacity: 0.9;
+  }
+
+  .main-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 32px;
+    margin: 0;
+    color: #111;
+  }
+
+  .header-left {
+    max-width: 60%;
+  }
+
+  .header-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin: 8px 0 15px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header-tagline {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 480px;
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header-left {
+      max-width: 100%;
+    }
+
+    .main-title {
+      font-size: 24px;
+    }
+
+    .header-subtitle {
+      font-size: 14px;
+    }
+  }
+
+  .section {
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 32px;
+  }
+
+  .sticky-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 10;
+  }
+
+  @media (max-width: 900px) {
+    .sticky-board {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .section {
+      padding: 0 16px;
+    }
+
+    .sticky-board {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

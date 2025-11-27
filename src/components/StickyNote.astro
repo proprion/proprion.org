@@ -1,0 +1,67 @@
+---
+export interface Props {
+  title?: string;
+  content: string;
+  className?: string;
+}
+
+const {
+  title,
+  content,
+  className = ''
+} = Astro.props;
+---
+
+<div class={`sticky-note ${className}`}>
+  {title && (
+    <h3 class="sticky-note-title">
+      {title}
+    </h3>
+  )}
+  <div class="sticky-note-content">
+    {content}
+  </div>
+</div>
+
+<style>
+  .sticky-note {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.09);
+    padding: 14px 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .sticky-note::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 14px;
+    background: linear-gradient(135deg, #fdfdfd, #f3f3f3);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    opacity: 0.9;
+  }
+
+  .sticky-note-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 4px 0 8px;
+    color: #111;
+  }
+
+  .sticky-note-content {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    white-space: pre-line;
+    color: #111;
+  }
+
+</style>

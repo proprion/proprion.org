@@ -1,0 +1,29 @@
+---
+export interface Props {
+  title: string;
+  className?: string;
+}
+
+const { title, className = '' } = Astro.props;
+---
+
+<h2 class={`section-title ${className}`}>
+  {title}
+</h2>
+
+<style>
+  .section-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #777777;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 12px;
+    }
+  }
+</style>
