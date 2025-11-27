@@ -19,7 +19,7 @@ import Highlight from '../components/Highlight.astro';
           <h1 class="main-title">Proprion</h1>
           <p class="header-tagline">
             An app for end-users to manage their personal cloud storage
-            and grant scoped access to applications.
+            and grant scoped access to applications. <span class="tagline-highlight">Freedom Starts With Your Data.</span>
           </p>
         </div>
         <div class="header-right">
@@ -375,21 +375,44 @@ Start building
   }
 
   .header-tagline {
-    font-size: 14px;
-    line-height: 1.4;
-    max-width: 480px;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 520px;
+  }
+
+  .tagline-highlight {
+    background-color: #fef08a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .section {
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 32px;
   }
 
   @media (max-width: 768px) {
     .site-header {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-      padding: 20px;
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+      align-items: stretch;
+      padding: 20px 16px;
+      max-width: 100%;
     }
 
     .header-left {
       max-width: 100%;
+      padding: 0;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
 
     .main-title {
@@ -399,14 +422,10 @@ Start building
     .header-subtitle {
       font-size: 14px;
     }
-  }
 
-  .section {
-    margin-bottom: 4rem;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 32px;
+    .header-tagline {
+      max-width: 100%;
+    }
   }
 
   .sticky-board {
