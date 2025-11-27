@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import StickyNote from '../components/StickyNote.astro';
 import SectionTitle from '../components/SectionTitle.astro';
+import Highlight from '../components/Highlight.astro';
 ---
 
 <Layout>
@@ -44,12 +45,11 @@ Self-Hosting (Nextcloud, own servers):
 - Realistic for only 1% of people`}
           />
 
-          <StickyNote
-            title="The Gap"
-            content={`No solution provides data sovereignty without requiring you to become a system administrator.
+          <StickyNote title="The Gap">
+            No solution provides <Highlight text="data sovereignty" /> without requiring you to become a <Highlight text="system administrator" />.
 
-For Developers: Building privacy-first apps means running servers and handling GDPR compliance. This prevents indie developers from building apps with sensitive data (health, mental health, accessibility tools).`}
-          />
+For Developers: Building privacy-first apps means running servers and handling <Highlight text="GDPR compliance" />. This prevents indie developers from building apps with sensitive data (health, mental health, accessibility tools).
+          </StickyNote>
         </div>
       </section>
 
@@ -57,53 +57,49 @@ For Developers: Building privacy-first apps means running servers and handling G
       <section class="section">
         <SectionTitle title="The Solution" />
         <div class="sticky-board">
-          <StickyNote
-            title="Choose Your Cloud"
-            content={`You select your European cloud provider (Hetzner, Scaleway, OVHcloud)
+          <StickyNote title="Choose Your Cloud">
+            You select your European cloud provider (Hetzner, Scaleway, OVHcloud)
 
 Why:
-- Data sovereignty: You decide where your data lives
+- Data sovereignty: <Highlight text="You decide where your data lives" />
 - No vendor lock-in: Switch providers anytime
 - GDPR protection: Your data stays in EU
-- You're in control: Your choice, your provider`}
-          />
+- You're in control: Your choice, your provider
+          </StickyNote>
 
-          <StickyNote
-            title="Grant Scoped Access"
-            content={`Apps get access ONLY to their own folder
+          <StickyNote title="Grant Scoped Access">
+            Apps get access <Highlight text="ONLY to their own folder" />
 Example: A notes app can only access /apps/notes/
 
 Why:
 - Isolation: Each app has its own space
 - Control: You approve or deny every request
 - Revocable: Remove app access anytime
-- Privacy: Apps can't spy on each other`}
-          />
+- Privacy: Apps can't spy on each other
+          </StickyNote>
 
-          <StickyNote
-            title="Optional Encryption"
-            content={`Your data is encrypted on YOUR device before upload
+          <StickyNote title="Optional Encryption">
+            Your data is <Highlight text="encrypted on YOUR device" /> before upload
 
 Why:
-- Zero-knowledge: Even cloud provider can't read files
+- <Highlight text="Zero-knowledge" />: Even cloud provider can't read files
 - You control keys: Keys never leave your device
 - Optional: Turn on for sensitive data
-- Perfect for: Health records, financial docs, journals`}
-          />
+- Perfect for: Health records, financial docs, journals
+          </StickyNote>
 
-          <StickyNote
-            title="No Developer Servers"
-            content={`Apps connect directly to YOUR cloud
+          <StickyNote title="No Developer Servers">
+            Apps connect <Highlight text="directly to YOUR cloud" />
 
 For You:
 - True privacy: Developers can't access your data
 - No data mining: Content can't be scanned or sold
 
 For Developers:
-- No servers needed
+- <Highlight text="No servers needed" />
 - Minimal GDPR burden
-- Enable innovation`}
-          />
+- Enable innovation
+          </StickyNote>
         </div>
       </section>
 
@@ -246,27 +242,25 @@ Without compliance costs that block indie devs`}
       <section class="section">
         <SectionTitle title="Impact" />
         <div class="sticky-board">
-          <StickyNote
-            title="Empowering People"
-            content={`For End-Users:
-Data sovereignty without becoming a system administrator. Choose your cloud, control your apps, keep your privacy.
+          <StickyNote title="Empowering People">
+            For End-Users:
+<Highlight text="Data sovereignty without becoming a system administrator" />. Choose your cloud, control your apps, keep your privacy.
 
 For Developers:
 Build public-benefit apps (health, mental health, accessibility tools) without infrastructure burden or prohibitive compliance costs.
 
-Result: Apps that were impossible for indie developers become possible.`}
-          />
+Result: <Highlight text="Apps that were impossible for indie developers become possible" />.
+          </StickyNote>
 
-          <StickyNote
-            title="Challenging Big Tech"
-            content={`The Problem Today:
+          <StickyNote title="Challenging Big Tech">
+            The Problem Today:
 Big Tech dominates because only they can afford infrastructure and compliance costs. Small developers can't compete on privacy.
 
 Proprion Changes This:
-Enable competition with Big Tech on privacy grounds. Small teams can build privacy-respecting alternatives.
+<Highlight text="Enable competition with Big Tech on privacy grounds" />. Small teams can build privacy-respecting alternatives.
 
-Result: Realize GDPR's democratic vision - users empowered, data protected, innovation enabled.`}
-          />
+Result: Realize GDPR's democratic vision - users empowered, data protected, innovation enabled.
+          </StickyNote>
         </div>
       </section>
 
@@ -274,15 +268,14 @@ Result: Realize GDPR's democratic vision - users empowered, data protected, inno
       <section class="section">
         <SectionTitle title="Call to Action" />
         <div class="sticky-board">
-          <StickyNote
-            title="For End-Users"
-            content={`Take Control of Your Data
+          <StickyNote title="For End-Users">
+            Take Control of Your Data
 
 Get early access to Proprion
-Be among the first to achieve data sovereignty
+Be among the first to achieve <Highlight text="data sovereignty" />
 
-[Sign Up for Beta]`}
-          />
+[Sign Up for Beta]
+          </StickyNote>
 
           <StickyNote
             title="For Developers"
